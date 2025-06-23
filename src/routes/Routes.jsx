@@ -31,6 +31,9 @@ export const router = createBrowserRouter([
       {
         path: "/plant/:id",
         element: <PlantDetails />,
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_API_URL}/plant/${params.id}`),
+        HydrateFallback: LoadingSpinner,
       },
     ],
   },
